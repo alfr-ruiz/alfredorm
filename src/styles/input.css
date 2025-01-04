@@ -12,12 +12,25 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Novela";
+  src: url("../fonts/Novela-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply font-novela;
+  }
+}
+
 .navbar {
-  @apply bg-navbarBg text-navbarItem font-sans font-bold;
+  @apply bg-navbarBg text-navbarItem font-novela font-bold;
 }
 
 .navbar a {
@@ -30,4 +43,12 @@
 
 .navbar .current {
   @apply text-navbarItemHover;
+}
+
+.album-title {
+  @apply font-novela text-xl font-bold mb-2;
+}
+
+.album-artist {
+  @apply font-helvetica text-sm tracking-wide;
 }

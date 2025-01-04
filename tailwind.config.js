@@ -8,7 +8,8 @@ module.exports = {
         navbarItemHover: "#ECECEC",
       },
       fontFamily: {
-        sans: ["Helvetica", "Arial", "sans-serif"],
+        helvetica: ["Helvetica", "Arial", "sans-serif"],
+        novela: ["Novela", "serif"],
       },
     },
   },
