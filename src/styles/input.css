@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "Helvetica";
+  src: url("../fonts/Helvetica.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Helvetica";
+  src: url("../fonts/Helvetica-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.navbar {
+  @apply bg-navbarBg text-navbarItem font-sans font-bold;
+}
+
+.navbar a {
+  @apply text-navbarItem text-sm;
+}
+
+.navbar a:hover {
+  @apply text-navbarItemHover;
+}
+
+.navbar .current {
+  @apply text-navbarItemHover;
+}

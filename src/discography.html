@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discography</title>
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/images/chakana-dark.svg"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/images/chakana-light.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+
+    <link rel="stylesheet" href="./styles/output.css" />
+  </head>
+
+  <body class="bg-navbarBg text-navbarItemHover">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <!-- Wrap both the nav links and the hr within the same container -->
+      <div class="max-w-7xl mx-auto px-10">
+        <div class="flex items-center justify-between h-24">
+          <div class="flex justify-between w-full">
+            <a href="/about" class="nav-link text-xl font-bold tracking-wide">ALFREDO</a>
+            <a href="/discography" class="nav-link current text-xl font-bold tracking-wide">DISCOGRAPHY</a>
+          </div>
+        </div>
+        <!-- Mobile Divider Bar (No extra mx-4 here) -->
+        <hr class="block md:hidden" style="border-color: #424242; border-top-width: 1px;" />
+      </div>
+    </nav>
+  
+    <!-- Page Content -->
+    <div class="max-w-7xl mx-auto px-8 py-6">
+      <!-- Grid Container -->
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <!-- Album Item -->
+        <div class="group relative">
+          <a href="https://open.spotify.com/track/7GZ6aJtBXTnJ8cCLesAgRt..." target="_blank">
+            <img src="images/album-art/dinner-w-Max.jpg"
+                 alt="Album Art"
+                 class="w-full h-full object-cover rounded-lg" />
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-80 transition duration-300 rounded-lg">
+              <div class="absolute inset-0 flex flex-col items-center justify-center text-center opacity-0 group-hover:opacity-100 transition duration-300">
+                <p class="text-navbarItemHover text-lg font-bold">ALFREDO - THE DINNER</p>
+                <p class="text-navbarItem text-sm mt-2">MIXING</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <!-- Add more album items as needed -->
+        <div class="group relative">
+          <a href="https://open.spotify.com/track/7GZ6aJtBXTnJ8cCLesAgRt..." target="_blank">
+            <img src="images/album-art/dinner-w-Max.jpg"
+                 alt="Album Art"
+                 class="w-full h-full object-cover rounded-lg" />
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-80 transition duration-300 rounded-lg">
+              <div class="absolute inset-0 flex flex-col items-center justify-center text-center opacity-0 group-hover:opacity-100 transition duration-300">
+                <p class="text-navbarItemHover text-lg font-bold">ALFREDO - THE DESSERT</p>
+                <p class="text-navbarItem text-sm mt-2">PRODUCTION</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>  
+</html>

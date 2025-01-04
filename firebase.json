@@ -1,0 +1,29 @@
+{
+  "hosting": {
+    "public": "src",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "cleanUrls": true,
+    "rewrites": [
+      {
+        "source": "/",
+        "destination": "/discography.html"
+      },
+      {
+        "source": "/discography",
+        "destination": "/discography.html"
+      },
+      {
+        "source": "/me",
+        "destination": "/me.html"
+      },
+      {
+        "source": "/contact",
+        "destination": "/contact.html"
+      }
+    ]
+  }
+}
