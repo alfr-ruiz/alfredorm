@@ -60,46 +60,75 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Generate credits
     const creditsContainer = document.getElementById('modalCredits');
-    creditsContainer.innerHTML = album.credits
+    const credits = album.credits.filter(credit => credit.role !== "Copyright");
+    creditsContainer.innerHTML = credits
       .map(credit => `
         <div>
           <div class="font-ibmplex text-navbarItem text-sm">${credit.role}</div>
-          <div class="font-ibmplex text-navbarItemHover text-lg mt-1">${credit.name}</div>
+          <div class="font-ibmplex text-navbarItemHover text-lg mt-2">${credit.name}</div>
         </div>
       `)
       .join('');
     
+    // Add copyright notice
+    const copyrightContainer = document.getElementById('modalCopyright');
+    const copyrightText = album.credits.find(credit => credit.role === "Copyright")?.name;
+    if (copyrightText) {
+      copyrightContainer.innerHTML = `
+        <div class="font-novela text-xs text-navbarItem/40">&copy;&nbsp;${copyrightText}</div>
+      `;
+    } else {
+      copyrightContainer.innerHTML = '';
+    }
+    
     // Generate Spotify link with icon
     const linksContainer = document.getElementById('modalLinks');
     linksContainer.innerHTML = `
-      <a href="${album.spotifyUrl}" 
+      <a href="https://open.spotify.com/album/3Z0qQc09rmk4JYtIaxEx2J?si=F8h_a4_VS5ik21zlduwdxw" 
          target="_blank" 
-         class="inline-flex items-center justify-center w-8 h-8 transition hover:text-highlight">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-full h-full text-navbarItem">
-          <path fill="currentColor" d="M31.747,33.915c-0.292,0-0.585-0.145-0.877-0.292c-2.777-1.607-6.139-2.484-9.792-2.484c-2.047,0-4.093,0.291-5.993,0.73 c-0.292,0-0.731,0.146-0.877,0.146c-0.731,0-1.169-0.586-1.169-1.17c0-0.73,0.438-1.17,1.023-1.314 c2.338-0.586,4.677-0.877,7.161-0.877c4.093,0,7.893,1.021,11.108,2.924c0.438,0.291,0.731,0.584,0.731,1.314 C32.916,33.478,32.331,33.915,31.747,33.915z M33.793,28.945c-0.438,0-0.73-0.144-1.023-0.291c-3.068-1.9-7.308-3.071-12.13-3.071 c-2.339,0-4.531,0.293-6.139,0.733c-0.439,0.144-0.585,0.144-0.877,0.144c-0.877,0-1.462-0.73-1.462-1.461 c0-0.877,0.439-1.316,1.169-1.607c2.192-0.584,4.385-1.023,7.454-1.023c4.97,0,9.793,1.17,13.593,3.507 c0.584,0.291,0.877,0.877,0.877,1.461C35.255,28.215,34.67,28.945,33.793,28.945z M36.132,23.101c-0.438,0-0.585-0.146-1.023-0.291 c-3.508-2.047-8.769-3.217-13.885-3.217c-2.631,0-5.262,0.293-7.6,0.877c-0.293,0-0.585,0.146-1.023,0.146 c-1.023,0.146-1.754-0.73-1.754-1.754c0-1.023,0.585-1.607,1.315-1.754c2.777-0.877,5.7-1.17,9.062-1.17 c5.554,0,11.4,1.17,15.785,3.654c0.584,0.293,1.022,0.877,1.022,1.754C37.886,22.369,37.154,23.101,36.132,23.101z"/>
-          <path fill="currentColor" d="M24,44C12.972,44,4,35.028,4,24S12.972,4,24,4s20,8.972,20,20S35.028,44,24,44z M24,6C14.075,6,6,14.075,6,24 s8.075,18,18,18s18-8.075,18-18S33.925,6,24,6z"/>
+         class="text-navbarItem hover:text-navbarItemHover transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.669 11.538a.498.498 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686zm.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858zm.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288z"/>
         </svg>
       </a>
     `;
     
-    // Show modal
+    // Show modal with animation
+    const modal = document.getElementById('albumModal');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalContent = modal.querySelector('.relative.w-full');
+    
     modal.classList.remove('hidden');
     modal.classList.add('flex');
-    document.body.style.overflow = 'hidden';
+    
+    // Reset animations
+    modalOverlay.classList.remove('modal-overlay-exit');
+    modalContent.classList.remove('modal-content-exit');
+    modalOverlay.classList.add('modal-overlay-enter');
+    modalContent.classList.add('modal-content-enter');
   }
 
-  // Close modal functionality
   function closeAlbumDetails() {
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
-    document.body.style.overflow = '';
+    const modal = document.getElementById('albumModal');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalContent = modal.querySelector('.relative.w-full');
+    
+    // Start exit animations
+    modalOverlay.classList.remove('modal-overlay-enter');
+    modalContent.classList.remove('modal-content-enter');
+    modalOverlay.classList.add('modal-overlay-exit');
+    modalContent.classList.add('modal-content-exit');
+    
+    // Wait for animation to complete before hiding
+    setTimeout(() => {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }, 195); // Match the animation duration
   }
-
-  closeModal.addEventListener('click', closeAlbumDetails);
   
   // Close on click outside
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
+  document.getElementById('modalOverlay').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) {
       closeAlbumDetails();
     }
   });

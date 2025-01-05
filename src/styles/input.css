@@ -34,6 +34,46 @@
   }
 }
 
+@keyframes mdModalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes mdModalOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes mdOverlayIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes mdOverlayOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 @layer base {
   body {
     @apply font-novela;
@@ -55,6 +95,22 @@
 
   .animation-delay-300 {
     animation-delay: 300ms;
+  }
+
+  .modal-overlay-enter {
+    animation: mdOverlayIn 225ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .modal-overlay-exit {
+    animation: mdOverlayOut 195ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .modal-content-enter {
+    animation: mdModalIn 225ms cubic-bezier(0.0, 0, 0.2, 1) forwards;
+  }
+
+  .modal-content-exit {
+    animation: mdModalOut 195ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 }
 
