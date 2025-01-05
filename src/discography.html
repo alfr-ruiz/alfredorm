@@ -18,7 +18,13 @@
       media="(prefers-color-scheme: dark)"
     />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./styles/output.css" />
+    <script src="./scripts/album-touch.js" defer></script>
+    <script src="./scripts/album-grid.js" defer></script>
   </head>
 
   <body class="bg-navbarBg text-navbarItem">
@@ -41,35 +47,50 @@
   
     <!-- Page Content -->
     <div class="discography-container">
-      <!-- Album Grid -->
-      <div class="album-grid grid grid-cols-2 md:grid-cols-3 gap-4">
-        <!-- Album Item -->
-        <div class="group relative opacity-0 animate-slide-down">
-          <a href="https://open.spotify.com/track/7GZ6aJtBXTnJ8cCLesAgRt..." target="_blank">
-            <img src="images/album-art/dinner-w-Max.jpg"
-                 alt="Album Art"
-                 class="w-full aspect-square object-cover rounded-lg" />
-            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-80 transition duration-300 rounded-lg">
-              <div class="absolute inset-0 flex flex-col items-center justify-center text-center opacity-0 group-hover:opacity-100 transition duration-300 px-4">
-                <h3 class="album-title text-white">Dinner w/ Max</h3>
-                <p class="album-artist text-white">Alfredo RM</p>
+      <!-- Album Grid - Items will be dynamically added here -->
+      <div class="album-grid grid grid-cols-2 md:grid-cols-3 gap-4"></div>
+      
+      <!-- Album Details Modal -->
+      <div id="albumModal" class="fixed inset-0 bg-black/80 z-50 hidden items-center justify-center min-h-screen">
+        <div class="relative w-full max-w-3xl mx-auto px-8">
+          <!-- Close Button -->
+          <button id="closeModal" class="absolute -top-12 right-8 text-navbarItem hover:text-navbarItemHover">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          
+          <!-- Modal Content -->
+          <div class="text-navbarItemHover space-y-8 bg-navbarBg rounded-2xl p-8">
+            <div class="flex flex-col md:flex-row gap-8">
+              <!-- Album Art -->
+              <img id="modalAlbumArt" src="" alt="" class="w-full md:w-72 aspect-square object-cover rounded-lg">
+              
+              <!-- Album Info -->
+              <div class="space-y-6">
+                <div>
+                  <h2 id="modalTitle" class="font-ibmplex text-4xl font-bold tracking-tight"></h2>
+                  <p id="modalArtist" class="font-ibmplex text-xl text-navbarItem mt-2 font-medium"></p>
+                  <div class="flex items-center gap-x-3 mt-1">
+                    <p class="font-novela text-sm text-navbarItem">Released <span id="modalReleaseYear"></span></p>
+                    <span class="text-navbarItem/40">•</span>
+                    <p id="modalLabel" class="font-novela text-sm text-navbarItem"></p>
+                  </div>
+                </div>
+                <div id="modalLinks" class="flex gap-4">
+                  <!-- Links will be added dynamically -->
+                </div>
               </div>
             </div>
-          </a>
-        </div>
-        <!-- Add more album items as needed -->
-        <div class="group relative opacity-0 animate-slide-down animation-delay-100">
-          <a href="https://open.spotify.com/track/7GZ6aJtBXTnJ8cCLesAgRt..." target="_blank">
-            <img src="images/album-art/dinner-w-Max.jpg"
-                 alt="Album Art"
-                 class="w-full aspect-square object-cover rounded-lg" />
-            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-80 transition duration-300 rounded-lg">
-              <div class="absolute inset-0 flex flex-col items-center justify-center text-center opacity-0 group-hover:opacity-100 transition duration-300 px-4">
-                <h3 class="album-title text-white">Dinner w/ Max</h3>
-                <p class="album-artist text-white">Alfredo RM</p>
+            
+            <!-- Credits -->
+            <div class="border-t border-navbarItem/10 pt-6">
+              <h3 class="font-ibmplex text-xl font-bold mb-4 text-navbarItemHover">Credits</h3>
+              <div id="modalCredits" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Credits will be added dynamically -->
               </div>
             </div>
-          </a>
+          </div>
         </div>
       </div>
     </div>
