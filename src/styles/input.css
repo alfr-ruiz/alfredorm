@@ -1,13 +1,13 @@
 @font-face {
-  font-family: "Helvetica";
-  src: url("../fonts/Helvetica.woff2") format("woff2");
+  font-family: "IBM Plex Sans";
+  src: url("../fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Helvetica";
-  src: url("../fonts/Helvetica-Bold.woff2") format("woff2");
+  font-family: "IBM Plex Sans";
+  src: url("../fonts/IBM_Plex_Sans/IBMPlexSans-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
@@ -23,18 +23,47 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @layer base {
   body {
     @apply font-novela;
   }
 }
 
+@layer utilities {
+  .animate-slide-down {
+    animation: slideDown 0.6s ease-out forwards;
+  }
+
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+}
+
 .navbar {
-  @apply bg-navbarBg text-navbarItem font-novela font-bold;
+  @apply bg-navbarBg text-navbarItem mb-12;
 }
 
 .navbar a {
-  @apply text-navbarItem text-sm;
+  @apply text-navbarItem text-xl font-ibmplex font-normal tracking-wide py-6;
 }
 
 .navbar a:hover {
@@ -45,10 +74,24 @@
   @apply text-navbarItemHover;
 }
 
+/* About page content */
+.about-container {
+  @apply container mx-auto px-6 md:px-8 max-w-7xl;
+}
+
+/* Discography page content */
+.discography-container {
+  @apply container mx-auto px-6 md:px-8 max-w-7xl;
+}
+
+.album-grid {
+  @apply grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8;
+}
+
 .album-title {
-  @apply font-novela text-xl font-bold mb-2;
+  @apply font-ibmplex font-bold text-lg md:text-xl mb-1;
 }
 
 .album-artist {
-  @apply font-helvetica text-sm tracking-wide;
+  @apply font-ibmplex text-base md:text-lg;
 }
