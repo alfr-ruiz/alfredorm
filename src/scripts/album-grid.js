@@ -127,8 +127,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   // Close on click outside
-  document.getElementById('modalOverlay').addEventListener('click', (e) => {
-    if (e.target === e.currentTarget) {
+  modal.addEventListener('click', (e) => {
+    // Check if the click was on the modal backdrop (not the content)
+    if (e.target === modal || e.target === document.getElementById('modalOverlay') || e.target === document.getElementById('modalContainer')) {
       closeAlbumDetails();
     }
   });
