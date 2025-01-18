@@ -10,11 +10,11 @@
     "rewrites": [
       {
         "source": "/",
-        "destination": "/discography.html"
+        "destination": "/audio.html"
       },
       {
-        "source": "/discography",
-        "destination": "/discography.html"
+        "source": "/audio",
+        "destination": "/audio.html"
       },
       {
         "source": "/me",
