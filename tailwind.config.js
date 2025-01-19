@@ -3,9 +3,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        navbarBg: "#212121",
-        navbarItem: "#B4B4B4",
-        navbarItemHover: "#ECECEC",
+        backgroundDark: "#212121",
+        primaryGrey: "#B4B4B4",
+        primaryLight: "#ECECEC",
+        dividerGrey: "#424242",
       },
       fontFamily: {
         novela: ["Novela", "serif"],

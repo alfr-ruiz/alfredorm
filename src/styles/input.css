@@ -147,19 +147,19 @@
 }
 
 .navbar {
-  @apply bg-navbarBg text-navbarItem mb-12;
+  @apply bg-backgroundDark text-primaryGrey mb-12;
 }
 
 .navbar a {
-  @apply text-navbarItem text-xl font-ibmplex font-normal tracking-wide py-6;
+  @apply text-primaryGrey text-xl font-ibmplex font-normal tracking-wide py-6;
 }
 
 .navbar a:hover {
-  @apply text-navbarItemHover;
+  @apply text-primaryLight;
 }
 
 .navbar .current {
-  @apply text-navbarItemHover;
+  @apply text-primaryLight;
 }
 
 /* About page content */
