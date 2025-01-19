@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1500"
+   height="500"
+   viewBox="0 0 396.875 132.29167"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="X-banner.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     inkscape:zoom="0.17417514"
+     inkscape:cx="887.03817"
+     inkscape:cy="594.22945"
+     inkscape:window-width="1280"
+     inkscape:window-height="698"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:export-bgcolor="#212121ff" />
+  <defs
+     id="defs1">
+    <rect
+       x="1070.7613"
+       y="322.95079"
+       width="77.50819"
+       height="63.154821"
+       id="rect3" />
+    <rect
+       x="1254.4844"
+       y="426.29505"
+       width="17.224042"
+       height="55.978137"
+       id="rect2" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;white-space:pre;inline-size:45.212;fill:#ececec;stroke-width:0.264583"
+       x="337.28027"
+       y="113.85895"
+       id="text1"
+       transform="matrix(6.5963306,0,0,7.0464615,-2035.41,-697.46746)"><tspan
+         x="337.28027"
+         y="113.85895"
+         id="tspan2"><tspan
+           style="font-family:Novela;-inkscape-font-specification:'Novela, Normal'"
+           id="tspan1">Alfredo Ruiz-Malca</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458334)"
+       id="text2"
+       style="fill:#ececec;text-orientation:auto;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect2)" />
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458334)"
+       id="text3"
+       style="fill:#ececec;text-orientation:auto;-inkscape-font-specification:'Novela, Normal';font-family:Novela;font-size:41.05967331px;text-align:start;writing-mode:lr-tb;direction:ltr;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect3)" />
+  </g>
+</svg>
