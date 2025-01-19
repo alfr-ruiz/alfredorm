@@ -7,6 +7,21 @@
       "**/node_modules/**"
     ],
     "cleanUrls": true,
+    "headers": [
+      {
+        "source": "**/*.ttf",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "font/ttf"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          }
+        ]
+      }
+    ],
     "rewrites": [
       {
         "source": "/",

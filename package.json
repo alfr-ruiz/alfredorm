@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "build:css": "npx tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css",
-    "build:prod": "npx tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css --minify",
+    "copy-fonts": "copyfiles -u 1 \"src/fonts/**/*\" dist/fonts/",
+    "build:prod": "npm run build:css --minify && npm run copy-fonts",
     "start": "npx tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css --watch",
     "dev": "npm-run-all --parallel start browser-sync",
     "browser-sync": "browser-sync start --server \"src\" --files \"src/**/*.html, src/**/*.css\" --port 3000 --no-notify --no-open --serveStatic \"src\" --index \"audio.html\" --middleware \"function(req, res, next) { if (req.url === '/') { res.writeHead(302, { 'Location': '/audio.html' }); res.end(); return; } if (!req.url.includes('.')) { req.url += '.html'; } return next(); }\""
